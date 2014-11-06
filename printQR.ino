@@ -14,7 +14,10 @@ char head[head_length] = { 0x1D,0x78,0x48,0x01 };  //QRコード stat, stat, nz_
 void setup()
 {
   Serial.begin(9600);
-  
+ 
+byte cmd_rev_prt[3] = { 0x1B, 0x49, 0x01 };
+Serial.write(cmd_rev_prt,3);
+  //{0x1B, 0x49, 0x01}; 
 }
  
 void loop()
@@ -53,7 +56,11 @@ void loop()
 		 	Serial.write((byte*)str, head_length+gotCharNum);
                         Serial.print("\r\r\r");  // 改行x6
                         Serial.println(body);
-                        Serial.print("\r\r\r\r\r\r");  // 改行x6
+                        // Serial.print("\r\r\r\r\r\r");  // 改行x6
+                        Serial.print("\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r");  // 改行x18
+                        Serial.print("\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r");  // 改行x18
+                        Serial.print("\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r");  // 改行x18
+
 
 //                        Serial.println("in byte-----");
 //                        for(int i=0; i< (head_length+gotCharNum); i++) Serial.println((byte)str[i]);
